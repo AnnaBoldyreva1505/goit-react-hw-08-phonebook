@@ -6,13 +6,13 @@ import toast from 'react-hot-toast';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
   const setForm = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const handleChange = ({ target: { name, value } }) => {
@@ -20,8 +20,8 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         break;
@@ -38,7 +38,7 @@ export const ContactForm = () => {
       setForm();
       return;
     }
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
     toast.success(`Contact "${name}" is added`);
     setForm();
   };
@@ -61,10 +61,10 @@ export const ContactForm = () => {
         <span>Number</span>
         <input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          title="Phone phone must be digits can start with +"
+          title="number must be digits can start with +"
           required
           onChange={handleChange}
         />
