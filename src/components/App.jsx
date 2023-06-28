@@ -19,7 +19,7 @@ export const App = () => {
 
   return (
     <>
-      <Routes>
+
         <Toaster position="top-right" reverseOrder={true} />
         <h1>Phonebook</h1>
         <ContactForm />
@@ -27,7 +27,7 @@ export const App = () => {
         <Filter />
         {isLoading && !error && <b>Request in progress...</b>}
         <ContactList />
-      </Routes>
+
     </>
   );
 };
