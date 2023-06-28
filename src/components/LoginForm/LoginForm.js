@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-
+import { Button } from '@mui/material';
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export const LoginForm = () => {
         Password
         <input type="password" name="password" />
       </label>
-      <button type="submit">Log In</button>
+      <Button variant="outlined" type="submit">Log In</Button>
     </form>
   );
 };
