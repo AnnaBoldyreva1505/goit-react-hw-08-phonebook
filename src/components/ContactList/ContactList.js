@@ -10,10 +10,10 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {contactsList.map(({ name, id, phone }) => {
+      {contactsList.map(({ name, id, number }) => {
         return (
           <li key={id}>
-            {name}: {phone}
+            {name}: {number}
             <button
               type="button"
               onClick={() => {
