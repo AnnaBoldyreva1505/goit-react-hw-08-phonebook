@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Layout } from './Layout';
@@ -23,7 +23,7 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <Router>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -53,6 +53,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-    </Router>
+
   );
 };
