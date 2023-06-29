@@ -11,16 +11,20 @@ export const ContactList = () => {
   return (
     <ul>
       {contactsList.map(({ name, id, number }) => {
+        const handleDelete = () => {
+          dispatch(deleteContact(id))
+            .then(() => {
+              toast.success(`Contact with name "${name}" is deleted`);
+            })
+            .catch(() => {
+              toast.error(`Failed to delete contact with name "${name}"`);
+            });
+        };
+  
         return (
           <li key={id}>
             {name}: {number}
-            <button
-              type="button"
-              onClick={() => {
-                dispatch(deleteContact(id));
-                toast.success(`Contact with name "${name}" is deleted`);
-              }}
-            >
+            <button type="button" onClick={handleDelete}>
               Delete
             </button>
           </li>
